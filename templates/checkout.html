@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar %}
+          <nav
+            class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light"
+            id="navbar-vertical"
+            style="width: calc(100% - 30px); z-index: 1"
+          >
+{% endblock navbar %}
+
+
+
+{% block titles %}
+                <a href="{%url 'product:index'%}" class="nav-item nav-link">{% trans 'Home'%}</a>
+                <a href="{%url 'product:shop'%}" class="nav-item nav-link">{% trans 'Shop'%}</a>
+                <div class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle active"
+                    data-toggle="dropdown"
+                    >{% trans 'Pages'%}</a
+                  >
+                  <div class="dropdown-menu rounded-0 m-0">
+                    <a href="{%url 'cart:cart'%}" class="dropdown-item">{% trans 'Shopping Cart'%}</a>
+                    <a href="{%url 'cart:checkout'%}" class="dropdown-item">{% trans 'Checkout'%}</a>
+                  </div>
+                </div>
+                <a href="{% url 'cart:contact' %}" class="nav-item nav-link">{% trans 'Contact'%}</a>
+{% endblock titles %}
+
+
+{% block content %}
+
+
+</div>
+</div>
+</div>
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+      <div
+        class="d-flex flex-column align-items-center justify-content-center"
+        style="min-height: 300px"
+      >
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">{% trans 'Checkout'%}</h1>
+        <div class="d-inline-flex">
+          <p class="m-0"><a href="{% url 'product:index' %}">{% trans 'Home'%}</a></p>
+          <p class="m-0 px-2">-</p>
+          <p class="m-0">{% trans 'Checkout'%}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- Checkout Start -->
+    <div class="container-fluid pt-5">
+      <div class="row px-xl-5">
+        <div class="col-lg-8">
+          <div class="mb-4">
+            <h4 class="font-weight-semi-bold mb-4">{% trans 'Shipping  Address'%}</h4>
+
+            <form method="POST"  id="checkoutform">
+              {% csrf_token %}
+              <div class="row">
+
+                <div class="col-md-6 form-group">
+                  <label>{% trans 'Mobile No'%}</label>
+                  <input
+                    name="phone" 
+                    class="form-control"
+                    type="text"
+                    placeholder="01xx xxx xxxx"
+                  />
+                  <p class="help-block text-danger">{{form.phone.errors}}</p>
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label>{% trans 'Address Line 1'%}</label>
+                  <input
+                    name="add1" 
+                    class="form-control"
+                    type="text"
+                    placeholder="123 Street"
+                  />
+                  <p class="help-block text-danger">{{form.add1.errors}}</p>
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label>{% trans 'Address Line 2'%}</label>
+                  <input
+                    name="add2" 
+                    class="form-control"
+                    type="text"
+                    placeholder="123 Street"
+                  />
+                  <p class="help-block text-danger">{{form.add2.errors}}</p>
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label>{% trans 'Country'%}</label>
+                  <input
+                    name="country" 
+                    class="form-control"
+                    type="text"
+                    placeholder="Egypt"
+                  />
+                  <p class="help-block text-danger">{{form.country.errors}}</p>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label>City</label>
+                  <select class="custom-select"  name="city">
+                    <option value="Cario" selected>{% trans 'Cario'%}</option>
+                    <option value="Alex">{% trans 'Alex'%}</option>
+                    <option value="Giza">{% trans 'Giza'%}</option>
+                    <option value="Behira">{% trans 'Behira'%}</option>
+                  </select>
+                  <p class="help-block text-danger">{{form.city.errors}}</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card border-secondary mb-5">
+            <div class="card-header bg-secondary border-0">
+              <h4 class="font-weight-semi-bold m-0">{% trans 'Order Total'%}</h4>
+            </div>
+            <div class="card-body">
+              <h5 class="font-weight-medium mb-3">{% trans 'Products'%}</h5>
+              {% for check in orders %}
+              <div class="d-flex justify-content-between">
+                <p>{{check.product.name}}</p>
+                <p>{{check.get_price}}</p>
+              </div>
+              {% endfor %}
+              <hr class="mt-0" />
+              <div class="d-flex justify-content-between mb-3 pt-1">
+                <h6 class="font-weight-medium">{% trans 'Subtotal'%}</h6>
+                <h6 class="font-weight-medium">{{total}}</h6>
+              </div>
+              <div class="d-flex justify-content-between">
+                <h6 class="font-weight-medium">{% trans 'Shipping'%}</h6>
+                <h6 class="font-weight-medium">{{charge_price}}</h6>
+              </div>
+            </div>
+            <div class="card-footer border-secondary bg-transparent">
+              <div class="d-flex justify-content-between mt-2">
+                <h5 class="font-weight-bold">{% trans 'Total'%}</h5>
+                <h5 class="font-weight-bold">{{totch}}</h5>
+              </div>
+            </div>
+          </div>
+          <div class="card border-secondary mb-5">
+            <div class="card-header bg-secondary border-0">
+              <h4 class="font-weight-semi-bold m-0">{% trans 'Payment'%}</h4>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    name="payment"
+                    id="on-deliver" 
+                    
+                  />
+                  {% comment %} <label class="custom-control-label" for="on-deliver"
+                    >{% trans 'Pay on Delivery'%}</label
+                  > {% endcomment %}
+                </div>
+              </div>
+            </div>
+            <div id="smart-button-container">
+              <div style="text-align: center;">
+                <div id="paypal-button-container"></div>
+              </div>
+            </div>
+            {% if orderscount %}
+              <div class="card-footer border-secondary bg-transparent">
+                <button
+                  class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3"
+                  type="submit" form="checkoutform" value="Submit"
+                >
+                {% trans 'Pay on Delivery'%}
+                </button>
+              </div>
+            {% endif %}
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Checkout End -->
+
+{% comment %} AXwteZXBD6uCLiZS5gT4GKT5FXN9yJkw5Y5gRda-v8uYCmWozeCa4XZrjuHxnbyLafhAC34YPn_2zMI4 {% endcomment %}
+<script src="https://www.paypal.com/sdk/js?client-id=AXwteZXBD6uCLiZS5gT4GKT5FXN9yJkw5Y5gRda-v8uYCmWozeCa4XZrjuHxnbyLafhAC34YPn_2zMI4&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script>
+  function initPayPalButton() {
+    paypal.Buttons({
+      style: {
+        shape: 'rect',
+        color: 'gold',
+        layout: 'vertical',
+        label: 'paypal',
+        
+      },
+
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{"amount":{"currency_code":"USD","value": {{totch}}}
+        }]
+        });
+      },
+
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(orderData) {
+          
+          // Full available details
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+          // Show a success message within this page, e.g.
+          const element = document.getElementById('paypal-button-container');
+          element.innerHTML = '';
+          element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+          // Or go to another URL:  actions.redirect('thank_you.html');
+          
+        });
+      },
+
+      onError: function(err) {
+        console.log(err);
+      }
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+</script>
+
+
+    {% endblock content %}

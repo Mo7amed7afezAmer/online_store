@@ -1,0 +1,110 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html class="loading" lang="en">
+<!-- BEGIN : Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="Ipay admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Ecommerce, Online-Store Ipay admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Pending Page - Ipay</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="{%static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{%static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'img/favicon-16x16.png' %}">
+    <link rel="manifest" href="{%static 'img/site.webmanifest' %}">
+    <link rel="mask-icon" href="{%static 'img/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- BEGIN VENDOR CSS-->
+    <!-- font icons-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/fonts/feather/style.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/fonts/simple-line-icons/style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/fonts/font-awesome/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/perfect-scrollbar.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/prism.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/switchery.min.css'%}">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN APEX CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/bootstrap-extended.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/colors.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/components.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/themes/layout-dark.css'%}">
+    <link rel="stylesheet" href="{% static 'app-assets/css/plugins/switchery.css'%}">
+    <!-- END APEX CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/core/menu/horizontal-menu.css'%}">
+    <link rel="stylesheet" href="{% static 'app-assets/css/pages/authentication.css'%}">
+    <link rel="stylesheet" href="{% static 'app-assets/css/pages/page-error.css'%}">
+    <!-- END Page Level CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css'%}">
+    <!-- END: Custom CSS-->
+</head>
+<!-- END : Head-->
+
+<!-- BEGIN : Body-->
+
+<body class="horizontal-layout horizontal-menu horizontal-menu-padding 1-column auth-page navbar-sticky layout-dark blank-page" data-open="hover" data-menu="horizontal-menu" data-col="1-column">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+        <div class="main-panel">
+            <!-- BEGIN : Main Content-->
+            <div class="main-content">
+                <div class="content-overlay"></div>
+                <div class="content-wrapper">
+                    <!--Pending page starts-->
+                    <section id="error" class="auth-height">
+                        <div class="container-fluid">
+                            <div class="row full-height-vh">
+                                <div class="col-12 d-flex align-items-center justify-content-center">
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <img src="{% static 'app-assets/img/gallery/error.png'%}" alt="" class="img-fluid error-img mt-2" height="300" width="400">
+                                            <h1 class="mt-4">{%trans 'Pending'%}</h1>
+                                            <div class="w-75 error-text mx-auto mt-4">
+                                                <p>Waiting for the admin to approve the request, please wait</p>
+                                            </div>
+                                            <a href="{%url 'product:index'%}" class="btn btn-warning my-2">Back To Home</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--Pending page ends-->
+                </div>
+            </div>
+            <!-- END : End Main Content-->
+        </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <!-- BEGIN VENDOR JS-->
+    <script src="{% static 'app-assets/vendors/js/vendors.min.js'%}"></script>
+    <script src="{% static 'app-assets/vendors/js/switchery.min.js'%}"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN APEX JS-->
+    <script src="{% static 'app-assets/js/core/app-menu.js'%}"></script>
+    <script src="{% static 'app-assets/js/core/app.js'%}"></script>
+    <script src="{% static 'app-assets/js/notification-sidebar.js'%}"></script>
+    <script src="{% static 'app-assets/js/customizer.js'%}"></script>
+    <script src="{% static 'app-assets/js/scroll-top.js'%}"></script>
+    <!-- END APEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+    <!-- BEGIN: Custom CSS-->
+    <script src="{% static 'assets/js/scripts.js'%}"></script>
+    <!-- END: Custom CSS-->
+</body>
+<!-- END : Body-->
+
+</html>

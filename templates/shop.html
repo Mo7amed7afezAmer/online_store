@@ -1,0 +1,362 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+
+{% block navbar %}
+                <nav 
+                    class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" 
+                    id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
+{% endblock navbar %}
+
+
+{% block titles %}
+                            <a href="{% url 'product:index' %}" class="nav-item nav-link">{% trans 'Home'%}</a>
+                            <a href="{% url 'product:shop' %}" class="nav-item nav-link active">{% trans 'Shop'%}</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{% trans 'Pages'%}</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="{% url 'cart:cart' %}" class="dropdown-item">{% trans 'Shopping Cart'%}</a>
+                                    <a href="{% url 'cart:checkout' %}" class="dropdown-item">{% trans 'Checkout'%}</a>
+                                </div>
+                            </div>
+                            <a href="{% url 'cart:contact' %}" class="nav-item nav-link">{% trans 'Contact'%}</a>
+{% endblock titles %}
+
+{% block content %}
+
+</div>
+</div>
+</div>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">{% trans 'Our Shop'%}</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="{% url 'product:index' %}">{% trans 'Home'%}</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">{% trans 'Shop'%}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- Shop Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <!-- Shop Sidebar Start -->
+            <div class="col-lg-3 col-md-12">
+                <div class="border-bottom mb-4 pb-4">
+                    <h5 class="font-weight-semi-bold mb-4">{% trans 'Filter by price'%}</h5>
+                    <form id="form-0">
+                        <!-- Price Start -->
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle allPrice" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Price
+                            </button>
+                            <div class="dropdown-menu dropdown-price" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">All Price</a>
+                            <a class="dropdown-item" href="#">0 - 100</a>
+                            <a class="dropdown-item" href="#">200 - 300</a>
+                            <a class="dropdown-item" href="#">400 - 500</a>
+                            <a class="dropdown-item" href="#">600 - 700</a>
+                            <a class="dropdown-item" href="#">800 - 900</a>
+                            <a class="dropdown-item" href="#">1000+</a>
+                            </div>
+                        </div>
+                        <!-- Price End --> 
+                        <hr>
+                        <!-- Color Start -->
+                        <h5 class="font-weight-semi-bold mb-4">{% trans 'Filter by color'%}</h5>
+                        {% comment %} <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="color-all" name="All_Color" 
+                            {{colors.All_Color}}>
+                            <label class="custom-control-label" for="color-all">{% trans 'All Color'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.all_products}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="color-1" name="Black" 
+                            {{colors.Black}}>
+                            <label class="custom-control-label" for="color-1">{% trans 'Black'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.black}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="color-2" name="White" 
+                            {{colors.White}}>
+                            <label class="custom-control-label" for="color-2">{% trans 'White'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.white}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="color-3" name="Red"
+                            {{colors.Red}}>
+                            <label class="custom-control-label" for="color-3">{% trans 'Red'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.red}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="color-4" name="Blue"
+                            {{colors.Blue}}>
+                            <label class="custom-control-label" for="color-4">{% trans 'Blue'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.blue}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                            <input type="checkbox" class="custom-control-input" id="color-5" name="Green"
+                            {{colors.Green}}>
+                            <label class="custom-control-label" for="color-5">{% trans 'Green'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.green}}</span>
+                        </div> {% endcomment %}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle allPrice" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Colors
+                            </button>
+                            <div class="dropdown-menu dropdown-price" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">All Color</a>
+                            <a class="dropdown-item" href="#">Black</a>
+                            <a class="dropdown-item" href="#">Red</a>
+                            <a class="dropdown-item" href="#">Blue</a>
+                            <a class="dropdown-item" href="#">White</a>
+                            <a class="dropdown-item" href="#">Green</a>
+                            </div>
+                        </div>
+                        <!-- Color End --> 
+                        <hr>
+                        <!-- Size Start -->
+                        <h5 class="font-weight-semi-bold mb-4">{% trans 'Filter by size'%}</h5>
+                        {% comment %} <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="size-all" name="All_Size" 
+                            {{sizes.All_Size}}>
+                            <label class="custom-control-label" for="size-all">{% trans 'All Size'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.all_products}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="size-1" name="XS" 
+                            {{sizes.XS}}>
+                            <label class="custom-control-label" for="size-1">XS</label>
+                            <span class="badge border font-weight-normal">{{statics.xs}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="size-2" name="S" 
+                            {{sizes.S}}>
+                            <label class="custom-control-label" for="size-2">S</label>
+                            <span class="badge border font-weight-normal">{{statics.s}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="size-3" name="M" 
+                            {{sizes.M}}>
+                            <label class="custom-control-label" for="size-3">M</label>
+                            <span class="badge border font-weight-normal">{{statics.m}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="size-4" name="L" 
+                            {{sizes.L}}>
+                            <label class="custom-control-label" for="size-4">L</label>
+                            <span class="badge border font-weight-normal">{{statics.l}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="size-5" name="XL" 
+                            {{sizes.XL}}>
+                            <label class="custom-control-label" for="size-5">XL</label>
+                            <span class="badge border font-weight-normal">{{statics.xl}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                            <input type="checkbox" class="custom-control-input" id="size-6" name="XXL" 
+                            {{sizes.XXL}}>
+                            <label class="custom-control-label" for="size-6">XXL</label>
+                            <span class="badge border font-weight-normal">{{statics.xxl}}</span>
+                        </div> {% endcomment %}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle allPrice" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sizes
+                            </button>
+                            <div class="dropdown-menu dropdown-price" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">All Size</a>
+                            <a class="dropdown-item" href="#">XS</a>
+                            <a class="dropdown-item" href="#">S</a>
+                            <a class="dropdown-item" href="#">M</a>
+                            <a class="dropdown-item" href="#">L</a>
+                            <a class="dropdown-item" href="#">XL</a>
+                            <a class="dropdown-item" href="#">XXL</a>
+                            <a class="dropdown-item" href="#">XXXL</a>
+                            </div>
+                        </div>
+                        <!-- Size End --> 
+                        <hr>
+                        <!-- Gender Start -->
+                        <h5 class="font-weight-semi-bold mb-4">{% trans 'Filter by gender'%}</h5>
+                        {% comment %} <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="gender-all" name="All_Gender" 
+                            {{gender.All_Gender}}>
+                            <label class="custom-control-label" for="gender-all">{% trans 'All Gender'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.all_products}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="male-1" name="Male" 
+                            {{gender.Male}}>
+                            <label class="custom-control-label" for="male-1">{% trans 'Male'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.male}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="female-2" name="Female" 
+                            {{gender.Female}}>
+                            <label class="custom-control-label" for="female-2">{% trans 'Female'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.female}}</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="baby-3" name="Baby" 
+                            {{gender.Baby}}>
+                            <label class="custom-control-label" for="baby-3">{% trans 'Baby'%}</label>
+                            <span class="badge border font-weight-normal">{{statics.baby}}</span>
+                        </div> {% endcomment %}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle allPrice" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Gender
+                            </button>
+                            <div class="dropdown-menu dropdown-price" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">All Gender</a>
+                            <a class="dropdown-item" href="#">Man</a>
+                            <a class="dropdown-item" href="#">Wonman</a>
+                            <a class="dropdown-item" href="#">Baby</a>
+                            </div>
+                        </div>
+                        <!-- Gender End --> 
+                        <hr>
+                        <input type="hidden" id="page_url" name="page_url" value="{{page_url}}">
+                        <div>
+                            <button class="btn btn-primary btn-block border-0 py-3" type="submit">
+                                {% trans 'Apply Filters'%}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            <!-- Shop Sidebar End -->
+            <!-- Shop Product Start -->
+            <div class="col-lg-9 col-md-12">
+                <div class="row pb-3">
+                    <div class="col-12 pb-1">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search by name" name="Search_name">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent text-primary">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="dropdown ml-4">
+                                <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        {% trans 'Sort by'%}
+                                        </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+                                    <a class="dropdown-item" href="{{sort_url}}&sort_by=date">{% trans 'Latest'%}</a>
+                                    <a class="dropdown-item" href="{{sort_url}}&sort_by=pricelow">{% trans 'Price Low'%}</a>
+                                    <a class="dropdown-item" href="{{sort_url}}&sort_by=pricehigh">{% trans 'Price High'%}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for product in object_list %}
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <a href="{% url 'product:detail' product.slug %}"><img class="img-fluid w-100" src="{{product.main_image.url}}" alt=""></a>
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">{{product.name}}</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>{{product.price}}</h6><h6 class="text-muted ml-2"><del>{{product.price_dis}}</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="{% url 'product:detail' product.slug %}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                
+                                {% if product in cart_items %}
+                                    <a class="btn btn-sm text-dark p-0 d-none" 
+                                        onclick="add_to_cart(this)" 
+                                        id="{{product.id}}"
+                                        name="add"
+                                    >
+                                    <i class="fas fa-shopping-cart text-primary mr-1"></i>{% trans 'Add To Cart'%}
+                                    </a>
+
+                                    <a class="btn btn-sm text-dark p-0 d-none d-block added-color"  
+                                        id="added-{{product.id}}"
+                                        name="added"
+                                    >
+                                    <i class="fas fa-shopping-cart text-primary mr-1"></i>Added to cart
+                                    </a>
+                                {% else %}
+                                    <a class="btn btn-sm text-dark p-0" 
+                                        onclick="add_to_cart(this)" 
+                                        id="{{product.id}}"
+                                        name="add"
+                                    >
+                                    <i class="fas fa-shopping-cart text-primary mr-1"></i>{% trans 'Add To Cart'%}
+                                    </a>
+
+                                    <a class="btn btn-sm text-dark p-0 d-none"  
+                                        id="added-{{product.id}}"
+                                        name="added"
+                                    >
+                                    <i class="fas fa-shopping-cart text-primary mr-1"></i>Added to cart
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="col-12 pb-1">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center mb-3">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                <a class="page-link" href="{{page_url}}&page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">{% trans 'Previous'%}</span>
+                                </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                </li>
+                            {% endif %}
+                            <li class="page-item active"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                                
+                            {% comment %} <li class="page-item"><a class="page-link" href="#">2</a></li> {% endcomment %}
+
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                <a class="page-link" href="{{page_url}}&page={{ page_obj.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">{% trans 'Next'%}</span>
+                                </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled" >
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">{% trans 'Next'%}</span>
+                                </a>
+                                </li>
+                            {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- Shop Product End -->
+        </div>
+    </div>
+    <!-- Shop End -->
+{% endblock content %}

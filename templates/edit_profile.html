@@ -1,0 +1,536 @@
+{% load static %}
+{% load i18n %}
+
+
+<!DOCTYPE html>
+<html class="loading" lang="en">
+<!-- BEGIN : Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="i pay admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Ecommerce, Online-Store Ipay admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="IPAY">
+    <title>edit profile</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="{%static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{%static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'img/favicon-16x16.png' %}">
+    <link rel="manifest" href="{%static 'img/site.webmanifest' %}">
+    <link rel="mask-icon" href="{%static 'img/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- BEGIN VENDOR CSS-->
+    <!-- font icons-->
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/fonts/feather/style.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/fonts/simple-line-icons/style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/fonts/font-awesome/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/vendors/css/perfect-scrollbar.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/vendors/css/prism.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/vendors/css/switchery.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/vendors/css/pickadate/pickadate.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/vendors/css/select2.min.css'%}">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN I PAY CSS-->
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/css/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/css/bootstrap-extended.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/css/colors.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/css/components.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/css/themes/layout-dark.css'%}">
+    <link rel="stylesheet" href="{%static 'app-assets/css/plugins/switchery.css'%}">
+    <!-- END I PAY CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="{%static 'app-assets/css/core/menu/horizontal-menu.css'%}">
+    <link rel="stylesheet" href="{%static 'app-assets/css/plugins/form-validation.css'%}">
+    <!-- END Page Level CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/css/style.css'%}">
+    <!-- END: Custom CSS-->
+</head>
+<!-- END : Head-->
+
+<!-- BEGIN : Body-->
+
+<body class="horizontal-layout horizontal-menu horizontal-menu-padding 2-columns  navbar-sticky layout-dark" data-open="hover" data-menu="horizontal-menu" data-col="2-columns">
+    <nav class="navbar navbar-expand-lg navbar-light header-navbar navbar-fixed">
+        <div class="container-fluid navbar-wrapper">
+            <div class="navbar-header d-flex">
+                <div class="navbar-toggle menu-toggle d-xl-none d-block float-left align-items-center justify-content-center" data-toggle="collapse"><i class="ft-menu font-medium-3"></i></div>
+                <ul class="navbar-nav">
+                    <li class="nav-item mr-2 d-none d-lg-block"><a class="nav-link apptogglefullscreen" id="navbar-fullscreen" href="javascript:;"><i class="ft-maximize font-medium-3"></i></a></li>
+                    <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="javascript:"><i class="ft-search font-medium-3"></i></a>
+                        <div class="search-input">
+                            <div class="search-input-icon"><i class="ft-search font-medium-3"></i></div>
+                            <input class="input" type="text" placeholder="Explore i pay..." tabindex="0" data-search="template-search">
+                            <div class="search-input-close"><i class="ft-x font-medium-3"></i></div>
+                            <ul class="search-list"></ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="navbar-brand-center">
+                    <div class="navbar-header">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <div class="logo"><a class="logo-text" href="{%url 'product:index'%}">
+                                        <div class="logo-img"><img class="logo-img" alt="i pay logo" src="{%static 'app-assets/img/iii.png'%}"></div><span class="text">I PAY</span>
+                                    </a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-container">
+                <div class="collapse navbar-collapse d-block" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        
+                        <li class="i18n-dropdown dropdown nav-item mr-2">
+                            <a class="nav-link d-flex align-items-center dropdown-toggle dropdown-language" id="dropdown-flag" href="javascript:;" data-toggle="dropdown">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {% get_language_info for LANGUAGE_CODE as lang %}
+                                {% if  LANGUAGE_CODE == 'en'%}
+                                    <img class="langimg selected-flag" src="{%static 'app-assets/img/flags/us.png'%}" alt="flag">
+                                {% else %}
+                                    <img class="langimg selected-flag" src="{%static 'app-assets/img/flags/eg.png'%}" alt="flag">
+                                {% endif %}
+                                <span class="selected-language d-md-flex d-none">
+                                    {{lang.name_local }}
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right text-left" aria-labelledby="dropdown-flag">
+                                <form id="lang-en" action="{% url 'set_language' %}" method="post">
+                                    {% csrf_token %}
+                                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                                    <input name="language" type="hidden" value="en">
+                                    <a class="dropdown-item" href="javascript:;" data-language="en" onclick="document.getElementById('lang-en').submit()"><img class="langimg mr-2" src="{%static 'app-assets/img/flags/us.png'%}" alt="flag">
+                                        <span class="font-small-3">English</span>
+                                    </a>
+                                </form>
+                                <form id="lang-ar" action="{% url 'set_language' %}" method="post">
+                                    {% csrf_token %}
+                                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                                    <input name="language" type="hidden" value="ar">
+                                    <a class="dropdown-item" href="javascript:;" data-language="es" onclick="document.getElementById('lang-ar').submit()"><img class="langimg mr-2" src="{%static 'app-assets/img/flags/eg.png'%}" alt="flag">
+                                        <span class="font-small-3">العربية</span>
+                                    </a>
+                                </form>
+                            </div>
+                        </li>
+                        
+                        <li class="dropdown nav-item mr-1">
+                            <a class="nav-link dropdown-toggle user-dropdown d-flex align-items-end" id="dropdownBasic2" href="javascript:;" data-toggle="dropdown">
+                                <div class="user d-md-flex d-none mr-2">
+                                    <span class="text-right">{{request.user.get_name}}</span>
+                                    <span class="text-right text-muted font-small-3">{% trans 'Available'%}</span>
+                                </div>
+                                <img class="avatar" src="{{request.user.avatar.url}}" alt="avatar" height="35" width="35">
+                            </a>
+                            <div class="dropdown-menu text-left dropdown-menu-right m-0 pb-0" aria-labelledby="dropdownBasic2">
+                                <a class="dropdown-item" href="{%url 'user:profile'%}">
+                                    <div class="d-flex align-items-center">
+                                        <i class="ft-edit mr-2"></i>
+                                        <span>{% trans 'Edit Profile'%}</span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{%url 'user:logout'%}">
+                                    <div class="d-flex align-items-center">
+                                        <i class="ft-power mr-2"></i>
+                                        <span>{% trans 'Logout'%}</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar (Header) Ends-->
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+        <div class="main-panel">
+            <!-- BEGIN : Main Content-->
+            <div class="main-content">
+                <div class="content-overlay"></div>
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-12 setting">
+                            <div class="content-header">{% trans 'Account Settings'%}</div>
+                            <p class="content-sub-header mb-1">{% trans 'Configure account settings to your needs'%}.</p>
+                        </div>
+                    </div>
+                    <!-- Account Settings starts -->
+                    <div class="row">
+                        <div class="col-md-3 mt-3">
+                            <!-- Nav tabs -->
+                            <ul class="nav flex-column nav-pills" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">
+                                        <i class="ft-settings mr-1 align-middle"></i>
+                                        <span class="align-middle">{% trans 'General'%}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="change-password-tab" data-toggle="tab" href="#change-password" role="tab" aria-controls="change-password" aria-selected="false">
+                                        <i class="ft-lock mr-1 align-middle"></i>
+                                        <span class="align-middle">{% trans 'Change Password'%}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">
+                                        <i class="ft-info mr-1 align-middle"></i>
+                                        <span class="align-middle">{% trans 'Info'%}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="social-links-tab" data-toggle="tab" href="#social-links" role="tab" aria-controls="social-links" aria-selected="false">
+                                        <i class="ft-twitter mr-1 align-middle"></i>
+                                        <span class="align-middle">{% trans 'Social Links'%}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="connections-tab" data-toggle="tab" href="#connections" role="tab" aria-controls="connections" aria-selected="false">
+                                        <i class="ft-link mr-1 align-middle"></i>
+                                        <span class="align-middle">{% trans 'Connections'%}</span>
+                                    </a>
+                                </li>
+                                {% comment %} <li class="nav-item">
+                                    <a class="nav-link" id="notifications-tab" data-toggle="tab" href="#notifications" role="tab" aria-controls="notifications" aria-selected="false">
+                                        <i class="ft-bell mr-1 align-middle"></i>
+                                        <span class="align-middle">Notifications</span>
+                                    </a>
+                                </li> {% endcomment %}
+                            </ul>
+                        </div>
+                        <div class="col-md-9">
+                            <!-- Tab panes -->
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="tab-content">
+                                            <!-- General Tab -->
+                                            <div class="tab-pane active" id="general" role="tabpanel" aria-labelledby="general-tab">
+                                            
+                                                <form method="POST"  role="form" enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    <div class="media">
+                                                        <img src="{{request.user.avatar.url}}" id="avatar_view" alt="profile-img" class="rounded mr-3" height="64" width="64">
+                                                        <div class="media-body">
+                                                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-start px-0 mb-sm-2">
+                                                                <label class="btn btn-sm bg-light-primary mb-sm-0" for="avatar_id">{% trans 'Upload Photo'%}</label>
+                                                                <input type="file" name="avatar" id="avatar_id" onchange="loadFile(event)" hidden>
+                                                            </div>
+                                                            <p class="text-muted mb-0 mt-1 mt-sm-0">
+                                                                <small>{% trans 'Allowed JPG or PNG. Max size of 800kB'%}</small>
+                                                                <small>{{form.avatar.errors}}</small>
+                                                                <small>{{form.phone.errors}}</small>
+                                                                
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="mt-1 mt-sm-2">
+                                                    <div class="row">
+                                                        <div class="col-12 form-group">
+                                                            <label for="username">{% trans 'First Name'%}</label>
+                                                            <div class="controls">
+                                                                <input type="text" id="username" class="form-control" placeholder="{% trans 'First Name'%}" value="{{request.user.first_name}}" name="first_name" required>
+                                                                <p class="help-block text-danger">{{form.first_name.errors}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="name">{% trans 'Last name'%}</label>
+                                                            <div class="controls">
+                                                                <input type="text" id="name" class="form-control" placeholder="{% trans 'Name'%}" value="{{request.user.last_name}}" name="last_name" required>
+                                                                <p class="help-block text-danger">{{form.last_name.errors}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="email">{% trans 'E-mail'%}</label>
+                                                            <div class="controls">
+                                                                <input type="text" id="email" class="form-control" placeholder="{% trans 'E-mail'%}" value="{{request.user.email}}" name="email" required>
+                                                                <p class="help-block text-danger">{{form.email.errors}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="alert bg-light-warning alert-dismissible mb-2">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                    <span aria-hidden="true"><i class="ft-x font-medium-2 text-bold-700"></i></span>
+                                                                </button>
+                                                                <p class="mb-0">{% trans 'Your email is not confirmed. Please check your inbox'%}.</p>
+                                                                <a href="javascript:;" class="alert-link">{% trans 'Resend confirmation'%}</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="phone">{% trans 'Phone'%}</label>
+                                                            <div class="controls">
+                                                                <input id="phone" name="{% trans 'phone'%}" type="number" class="form-control" required placeholder="01x xxxx xxxx" value="{{request.user.phone}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            <button type="submit" class="btn btn-primary mr-sm-2 mb-1">{% trans 'Save Changes'%}</button>
+                                                            <button type="reset" class="btn btn-secondary mb-1">{% trans 'Cancel'%}</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- Change Password Tab -->
+                                            <div class="tab-pane" id="change-password" role="tabpanel" aria-labelledby="change-password-tab">
+                                            
+                                                <form method="post" action="{%url 'password_change'%}">
+                                                
+                                                    {% csrf_token %}
+                                                    <div class="form-group">
+                                                        <label for="old-password">{% trans 'Old Password'%}</label>
+                                                        <div class="controls">
+                                                            <input type="password" id="old-password" name="old_password" class="form-control" placeholder="{% trans 'Old Password'%}" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="new-password">{% trans 'New Password'%}</label>
+                                                        <div class="controls">
+                                                            <input type="password" id="new-password" name="new_password1" class="form-control" placeholder="{% trans 'New Password'%}" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="retype-new-password">{% trans 'Retype New Password'%}</label>
+                                                        <div class="controls">
+                                                            <input type="password" id="retype-new-password" name="new_password2" class="form-control" placeholder="{% trans 'New Password'%}" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-sm-row flex-column justify-content-end">
+                                                        <button type="submit" class="btn btn-primary mr-sm-2 mb-1">{% trans 'Save Changes'%}</button>
+                                                    </div>
+                                                    {% if form.errors %}
+                                                        {% for field in form %}
+                                                                {% if field.errors %}
+                                                                {{field.name}}
+                                                                {% endif %}
+                                                                {% for error in field.errors %}
+                                                                    <p style="color: red">{{ error }}</p>
+                                                                {% endfor %}
+                                                            {% endfor %}
+                                                    {% endif %}
+                                                </form>
+                                            </div>
+                                            <!-- Info Tab -->
+                                            <div class="tab-pane" id="info" role="tabpanel" aria-labelledby="info-tab">
+                                                <form method="POST" action="{%url 'user:profileinfo'%}">
+                                                    {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-12 form-group">
+                                                            <label for="bio">{% trans 'Bio'%}</label>
+                                                            <textarea id="bio" name="bio" class="form-control" placeholder="{% trans 'Your Bio data here'%}..." rows="3">{{request.user.userprofile.bio}}</textarea>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="bdate">{% trans 'Birth Date'%}</label>
+                                                            <div class="controls">
+                                                                <input id="bdate" name="birth_date" type="date" class="form-control pickadate"  placeholder="{% trans 'Birth date'%}" value="{{request.user.userprofile.birth_date|date:'Y-m-d'}}"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="country">{% trans 'Country'%}</label>
+                                                            <div class="controls">
+                                                                <select id="country" name="country" class="form-control">
+                                                                    <option value="">{% trans 'Select Country'%}</option>
+                                                                    {% if request.user.userprofile.country == 'Cairo'%}
+                                                                        <option value="Cairo" selected>Cairo</option>
+                                                                        <option value="Alex">Alex</option>
+                                                                    {% elif request.user.userprofile.country == 'Alex'%}
+                                                                        <option value="Cairo" >Cairo</option>
+                                                                        <option value="Alex" selected>Alex</option>
+                                                                    {% else %}
+                                                                        <option value="Cairo">Cairo</option>
+                                                                        <option value="Alex">Alex</option>
+                                                                    {% endif %}
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="languages">Languages</label>
+                                                            <select id="languages" name="langs" class="select2 form-control" multiple aria-hidden="true">
+                                                                {% for  language in langs %}
+                                                                    <option value="{{language.id}}" {% if language in request.user.userprofile.langs.all %} selected {% endif %} >{{language.get_language_display}}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="company">{% trans 'Company'%}</label>
+                                                            <div class="controls">
+                                                                <input type="text" name="company" id="company" class="form-control" placeholder="{% trans 'Company Name'%}" aria-invalid="false" value="{{request.user.userprofile.company}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="website">{% trans 'Website'%}</label>
+                                                            {% if  request.user.userprofile.company_url == None%}
+                                                                <input id="website" name="company_url" type="text" class="form-control" placeholder="{% trans 'Website Address'%}">
+                                                            {% else %}
+                                                                <input id="website" name="company_url" type="text" class="form-control" placeholder="{% trans 'Website Address'%}" value="{{request.user.userprofile.company_url}}">
+                                                            {% endif %}
+                                                            
+                                                        </div>
+                                                        
+                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            <button type="submit" class="btn btn-primary mr-sm-2 mb-1">{% trans 'Save Changes'%}</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- Social Links Tab -->
+                                            <div class="tab-pane" id="social-links" role="tabpanel" aria-labelledby="social-links-tab">
+                                                <form method="POST" action="{%url 'user:profilelinks'%}">
+                                                    {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-12 form-group">
+                                                            <label for="twitter">{% trans 'Twitter'%}</label>
+                                                            {% if  request.user.userprofile.twitter_url == None%}
+                                                                <input id="twitter" type="text" name="twitter_url" class="form-control" placeholder="{% trans 'Add link'%}">
+                                                            {% else %}
+                                                                <input id="twitter" type="text" name="twitter_url" class="form-control" placeholder="{% trans 'Add link'%}" value="{{request.user.userprofile.twitter_url}}">
+                                                            {% endif %}
+                                                            <p>{{form.twitter_url.errors}}</p>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="facebook">{% trans 'Facebook'%}</label>
+                                                            {% if  request.user.userprofile.facebook_url == None%}
+                                                                <input id="facebook" type="text" name="facebook_url" class="form-control" placeholder="{% trans 'Add link'%}">
+                                                            {% else %}
+                                                                <input id="facebook" type="text" name="facebook_url" class="form-control" placeholder="{% trans 'Add link'%}" value="{{request.user.userprofile.facebook_url}}">
+                                                            {% endif %}
+                                                            <p>{{form.facebook_url.errors}}</p>
+                                                        </div>
+                                                        
+                                                        <div class="col-12 form-group">
+                                                            <label for="linkedin">{% trans 'Linkedin'%}</label>
+                                                            {% if  request.user.userprofile.linkedin_url == None%}
+                                                                <input id="linkedin" type="text" name="linkedin_url" class="form-control" placeholder="{% trans 'Add link'%}">
+                                                            {% else %}
+                                                                <input id="linkedin" type="text" name="linkedin_url" class="form-control" placeholder="{% trans 'Add link'%}" value="{{request.user.userprofile.linkedin_url}}">
+                                                            {% endif %}
+                                                            <p>{{form.linkedin_url.errors}}</p>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="instagram">{% trans 'Instagram'%}</label>
+                                                            {% if  request.user.userprofile.instagram_url == None%}
+                                                                <input id="instagram" type="text" name="instagram_url" class="form-control" placeholder="{% trans 'Add link'%}">
+                                                            {% else %}
+                                                                <input id="instagram" type="text" name="instagram_url" class="form-control" placeholder="{% trans 'Add link'%}" value="{{request.user.userprofile.instagram_url}}">
+                                                            {% endif %}
+                                                            <p>{{form.instagram_url.errors}}</p>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="quora">{% trans 'Quora'%}</label>
+                                                            {% if  request.user.userprofile.quora_url == None%}
+                                                                <input id="quora" type="text" name="quora_url" class="form-control" placeholder="{% trans 'Add link'%}">
+                                                            {% else %}
+                                                                <input id="quora" type="text" name="quora_url" class="form-control" placeholder="{% trans 'Add link'%}" value="{{request.user.userprofile.quora_url}}">
+                                                            {% endif %}
+                                                            <p>{{form.quora_url.errors}}</p>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <label for="youtube">{% trans 'Youtube'%}</label>
+                                                            {% if  request.user.userprofile.youtube_url == None%}
+                                                                <input id="youtube" type="text" name="youtube_url" class="form-control" placeholder="Add link">
+                                                            {% else %}
+                                                                <input id="youtube" type="text" name="youtube_url" class="form-control" placeholder="Add link" value="{{request.user.userprofile.youtube_url}}">
+                                                            {% endif %}
+                                                            <p>{{form.youtube_url.errors}}</p>
+                                                        </div>
+                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            <button type="submit" class="btn btn-primary mr-sm-2 mb-1">{% trans 'Save Changes'%}</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- Connections Tab -->
+                                            <div class="tab-pane" id="connections" role="tabpanel" aria-labelledby="connections-tab">
+                                                <form novalidate>
+                                                    <div class="row">
+                                                        <div class="col-12 my-2">
+                                                            <button type="button" class="btn btn-info">{% trans 'Connect to'%} <strong>{% trans 'Google'%}</strong> <div id="buttonDiv"></div>  </button>
+                                                            
+                                                        </div>
+                                                        <div class="col-12 my-2">
+                                                            {% if request.user.googleprofile.email %}
+                                                                <h6>{% trans 'You are connected to google'%}.</h6>
+                                                                <p>{{request.user.googleprofile.email}}</p>
+                                                            {% else %}
+                                                                <h6>{% trans 'You are not connected'%}.</h6>
+                                                            {% endif %}
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- Notifications Tab -->
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Account Settings ends -->
+                </div>
+            </div>
+            <!-- END : End Main Content-->
+            <!-- BEGIN : Footer-->
+            <footer class="footer undefined undefined">
+                <p class="clearfix text-muted m-0"><span>Copyright &copy; 2022 &nbsp;</span><a href="" id="pixinventLink" target="_blank">IPAY</a><span class="d-none d-sm-inline-block">, All rights reserved.</span></p>
+            </footer>
+            <!-- End : Footer-->
+            <!-- Scroll to top button -->
+            <button class="btn btn-primary scroll-top" type="button"><i class="ft-arrow-up"></i></button>
+        </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+    <!-- BEGIN VENDOR JS-->
+    <script src="{%static 'app-assets/vendors/js/vendors.min.js'%}"></script>
+    <script src="{%static 'app-assets/vendors/js/switchery.min.js'%}"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="{%static 'app-assets/vendors/js/pickadate/picker.js'%}"></script>
+    <script src="{%static 'app-assets/vendors/js/pickadate/picker.date.js'%}"></script>
+    <script src="{%static 'app-assets/vendors/js/pickadate/picker.time.js'%}"></script>
+    <script src="{%static 'app-assets/vendors/js/pickadate/legacy.js'%}"></script>
+    <script src="{%static 'app-assets/vendors/js/select2.full.min.js'%}"></script>
+    <script src="{%static 'app-assets/vendors/js/jqBootstrapValidation.js'%}"></script>
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN I PAY JS-->
+    <script src="{%static 'app-assets/js/core/app-menu.js'%}"></script>
+    <script src="{%static 'app-assets/js/core/app.js'%}"></script>
+    <script src="{%static 'app-assets/js/notification-sidebar.js'%}"></script>
+    <script src="{%static 'app-assets/js/customizer.js'%}"></script>
+    <script src="{%static 'app-assets/js/scroll-top.js'%}"></script>
+    <!-- END I PAY JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="{%static 'app-assets/js/datetime-picker.js'%}"></script>
+    <script src="{%static 'app-assets/js/select2.js'%}"></script>
+    <script src="{%static 'app-assets/js/form-validation.js'%}"></script>
+    <!-- END PAGE LEVEL JS-->
+    <!-- BEGIN: Custom CSS-->
+    <script src="{%static 'assets/js/scripts.js'%}"></script>
+    <!-- END: Custom CSS-->
+    <!-- google login-->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="{%static 'js/google.js'%}"></script>
+
+    <script type="text/javascript">
+        var loadFile = function(event) {
+          var image = document.getElementById('avatar_view');
+          image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+
+
+</body>
+<!-- END : Body-->
+
+</html>

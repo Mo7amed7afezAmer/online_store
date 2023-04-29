@@ -1,0 +1,226 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="loading" lang="en">
+<!-- BEGIN : Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <meta
+    name="description"
+    content="Ipay admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities."
+    />
+    <meta
+    name="keywords"
+    content="admin template, Ecommerce, Online-Store Ipay admin template, dashboard template, flat admin template, responsive admin template, web app"
+    />
+    <meta name="author" content="IPAY" />
+    <title>Register Page - Ipay</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="{%static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{%static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'img/favicon-16x16.png' %}">
+    <link rel="manifest" href="{%static 'img/site.webmanifest' %}">
+    <link rel="mask-icon" href="{%static 'img/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- BEGIN VENDOR CSS-->
+    <!-- font icons-->
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/fonts/feather/style.min.css'%}"/>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/fonts/simple-line-icons/style.css'%}"/>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/fonts/font-awesome/css/font-awesome.min.css'%}"/>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/vendors/css/perfect-scrollbar.min.css'%}"/>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/vendors/css/prism.min.css'%}"/>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/vendors/css/switchery.min.css'%}"/>
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN IPAY CSS-->
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/css/bootstrap.css'%}"/>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/css/bootstrap-extended.css'%}"/>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/css/colors.css'%}"/>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/css/components.css'%}"/>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/css/themes/layout-dark.css'%}"/>
+    <link
+    rel="stylesheet"
+    href="{%static 'app-assets/css/plugins/switchery.css'%}"/>
+    <!-- END IPAY CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'app-assets/css/core/menu/horizontal-menu.css'%}">
+    <link
+    rel="stylesheet"
+    href="{%static 'app-assets/css/pages/authentication.css'%}">
+    <!-- END Page Level CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{%static 'assets/css/style.css'%}"/>
+    <!-- END: Custom CSS-->
+</head>
+<!-- END : Head-->
+
+<!-- BEGIN : Body-->
+
+<body
+    class="horizontal-layout horizontal-menu horizontal-menu-padding 1-column auth-page navbar-sticky layout-dark blank-page"
+    data-open="hover"
+    data-menu="horizontal-menu"
+    data-col="1-column">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+    <div class="main-panel">
+        <!-- BEGIN : Main Content-->
+        <div class="main-content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <!--Registration Page Starts-->
+            <section id="regestration" class="auth-height">
+            <div class="row full-height-vh m-0">
+                <div
+                class="col-12 d-flex align-items-center justify-content-center"
+                >
+                <div class="card overflow-hidden">
+                    <div class="card-content">
+                    <div class="card-body auth-img">
+                        <div class="row m-0">
+                        <div
+                            class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center text-center auth-img-bg py-2"
+                        >
+                            <img
+                            src="{%static 'app-assets/img/gallery/register.png'%}"
+                            alt=""
+                            class="img-fluid"
+                            width="350"
+                            height="230"
+                            />
+                        </div>
+                        <div class="col-lg-6 col-md-12 px-4 py-3">
+                            <h4 class="card-title mb-2">Create Account</h4>
+                            <p>Fill the below form to create a new account.</p>
+
+                            <form   method="POST">
+                                {% csrf_token %}
+                                <input type="text"  name="first_name" class="form-control mb-2" placeholder="First name" />
+                                {{form.first_name.errors}}
+                                
+
+                                <input type="text"  name="last_name" class="form-control mb-2" placeholder="Last name" />
+                                {{form.last_name.errors}}
+
+                                <input type="email" name="email" class="form-control mb-2" placeholder="Email" />
+                                {{form.email.errors}}
+
+                                <input type="password" name="password1" class="form-control mb-2" placeholder="Password"/>
+                                {{form.password1.errors}}
+
+                                <input type="password" name="password2" class="form-control mb-2" placeholder="Confirm Password"/>
+                                {{form.password2.errors}}
+
+                                <input type="text"  name="phone" class="form-control mb-2" placeholder="Mobile Number (01x xxxx xxxx)" />
+                                {{form.phone.errors}}
+
+                                <div >
+                                    <label class="sell" for="seller">Choose account:</label>
+                                    <select name="seller" class="seller" id="seller" name="seller">
+                                        <option value="">User</option>
+                                        <option value="1">Seller</option>
+                                    </select>
+                                    {{form.seller.errors}}
+                                </div>
+
+                                <div class="checkbox auth-checkbox font-small-2 mb-3">
+                                    <input type="checkbox" id="auth-ligin" name="agree"/>
+                                    <label for="auth-ligin">
+                                        <span>I accept the terms & conditions</span>
+                                    </label>
+                                    {{form.agree.errors}}
+                                </div>
+
+                                <div class="d-flex justify-content-between flex-sm-row flex-column">
+                                    <a
+                                        href="/login"
+                                        class="btn bg-light-primary mb-2 mb-sm-0 b-login"
+                                        >Back To login
+                                    </a>
+                                    <button name="submit" type="submit" class="btn btn-primary register"
+                                        >Register
+                                    </button>
+                                </div>
+                            </form>   
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </section>
+            <!--Registration Page Ends-->
+        </div>
+        </div>
+        <!-- END : End Main Content-->
+    </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <!-- BEGIN VENDOR JS-->
+    <script src="{%static 'app-assets/vendors/js/vendors.min.js'%}"></script>
+    <script src="{%static 'app-assets/vendors/js/switchery.min.js'%}"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN IPAY JS-->
+    <script src="{%static 'app-assets/js/core/app-menu.js'%}"></script>
+    <script src="{%static 'app-assets/js/core/app.js'%}"></script>
+    <script src="{%static 'app-assets/js/notification-sidebar.js'%}"></script>
+    <script src="{%static 'app-assets/js/customizer.js'%}"></script>
+    <script src="{%static 'app-assets/js/scroll-top.js'%}"></script>
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+    <!-- BEGIN: Custom CSS-->
+    <script src="{%static 'assets/js/scripts.js'%}"></script>
+    <!-- END: Custom CSS-->
+</body>
+<!-- END : Body-->
+</html>
